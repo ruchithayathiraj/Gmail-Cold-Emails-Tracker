@@ -1,0 +1,9 @@
+# Never upload these to GitHub — they contain your private credentials
+credentials.json
+token.json
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.env
