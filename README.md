@@ -14,17 +14,17 @@ A Python automation script that connects to your **real Gmail account** and:
 
 1. 📬 **Scans your Sent folder** for cold recruiter/job outreach emails
 2. 🔍 **Checks every thread** for replies — did they respond?
-3. 🚨 **Flags emails with no reply** after 7 days
-4. ✉️ **Auto-drafts personalised follow-up emails** saved directly to your Gmail Drafts
+3. 🚨 **Flags emails with no reply** after 3 days
+4. ✉️ **Auto-drafts follow-up emails** saved directly to your Gmail Drafts
 5. 📊 **Prints a summary report** — total sent, replied, pending, drafted
 
 ---
 
 ## 💡 Why I Built This
 
-As a job seeker sending dozens of cold emails to recruiters, manually tracking replies and writing follow-ups was time consuming and easy to forget. This tool automates the entire process — saving time and ensuring no opportunity slips through the cracks.
+As a job seeker sending dozens of cold emails to hiring managers/recruiters, manually tracking replies and writing follow-ups is time consuming. This tool automates the entire process which saves time and ensures no opportunity slips through the cracks.
 
-> I actively use this tool in my own job search. 🎯
+> I started actively to use this tool in my own job search. 🎯
 
 ---
 
@@ -32,7 +32,7 @@ As a job seeker sending dozens of cold emails to recruiters, manually tracking r
 
 | Component | Technology |
 |---|---|
-| Language | Python 3.8+ |
+| Language | Python 3.4+ |
 | Gmail Integration | Gmail API (Google Cloud) |
 | Authentication | OAuth 2.0 |
 | Email Parsing | Python `email`, `base64`, `re` |
@@ -50,7 +50,7 @@ Gmail-Cold-Email-Tracker/
 └── README.md              ← You are here
 ```
 
-> ⚠️ `credentials.json` and `token.json` are intentionally NOT included — see setup instructions below.
+> ⚠️ `credentials.json` and `token.json` are NOT included — see setup instructions below.
 
 ---
 
@@ -60,6 +60,10 @@ Gmail-Cold-Email-Tracker/
 ```bash
 git clone https://github.com/ruchithayathiraj/Gmail-Cold-Email-Tracker
 cd Gmail-Cold-Email-Tracker
+```
+### Step 3 - Check for pyton version (If you see Python 3.8+ you're good, or else download from python.org)
+```bash
+python --version
 ```
 
 ### Step 2 — Install dependencies
@@ -71,7 +75,7 @@ pip install -r requirements.txt
 
 1. Go to [Google Cloud Console](https://console.cloud.google.com)
 2. Create a new project → name it `gmail-tracker`
-3. Go to **APIs & Services → Library** → Search `Gmail API` → **Enable**
+3. Go to **APIs & Services → Search `Gmail API` → **Enable**
 4. Go to **APIs & Services → OAuth consent screen**
    - Choose **External** → fill App name + your email → Save
    - Scroll to **Test Users** → add your Gmail → Save
@@ -132,7 +136,7 @@ Open `gmail_tracker.py` and edit these settings at the top:
 
 ```python
 # Change follow-up delay (default: 7 days)
-FOLLOWUP_AFTER_DAYS = 7
+FOLLOWUP_AFTER_DAYS = 3
 
 # Add your own subject line keywords
 RECRUITER_SUBJECT_KEYWORDS = [
@@ -153,21 +157,6 @@ YOUR_NAME = "Your Name"
 - **credentials.json and token.json are excluded** from GitHub via `.gitignore`
 - **OAuth 2.0** means your Gmail password is never accessed or stored by this script
 - Revoke access anytime at [myaccount.google.com/permissions](https://myaccount.google.com/permissions)
-
----
-
-## 🧠 Key Python Concepts Used
-
-| Concept | Where Used |
-|---|---|
-| Functions (`def`) | `authenticate_gmail()`, `check_for_replies()` |
-| Loops (`for`) | Iterating through emails and threads |
-| Conditions (`if`) | Checking replies, flagging follow-ups |
-| f-strings | Building personalised email bodies |
-| Dictionaries | Storing email metadata |
-| Try/Except | Handling API errors gracefully |
-| Regex (`re`) | Extracting names, years, email domains |
-| Base64 encoding | Converting emails for Gmail API |
 
 ---
 
