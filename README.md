@@ -32,7 +32,7 @@ As a job seeker sending dozens of cold emails to hiring managers/recruiters, man
 
 | Component | Technology |
 |---|---|
-| Language | Python 3.4+ |
+| Language | Python 3.8+ |
 | Gmail Integration | Gmail API (Google Cloud) |
 | Authentication | OAuth 2.0 |
 | Email Parsing | Python `email`, `base64`, `re` |
