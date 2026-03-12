@@ -7,10 +7,6 @@ Purpose : Scans Gmail Sent folder for cold recruiter emails,
           and saves personalised follow-up drafts directly to Gmail.
 
 Setup Instructions (README.md has full details):
-  1. pip install -r requirements.txt
-  2. Enable Gmail API at console.cloud.google.com
-  3. Download credentials.json → place in this folder
-  4. python gmail_tracker.py
 """
 
 import os
@@ -362,6 +358,7 @@ def print_summary(emails, drafted):
     print(f"  ✉️  Follow-up drafts created  : {drafted}")
     print("═" * 55)
 
+"""
     if emails:
         print("\n  📋 EMAIL BREAKDOWN:")
         print(f"  {'Subject':<40} {'Days':<6} {'Status'}")
@@ -374,7 +371,7 @@ def print_summary(emails, drafted):
 
     print("\n  💡 TIP: Go to Gmail Drafts to review and send your follow-ups!")
     print("═" * 55 + "\n")
-
+"""
 
 # ══════════════════════════════════════════════════════════════════════════════
 # MAIN
